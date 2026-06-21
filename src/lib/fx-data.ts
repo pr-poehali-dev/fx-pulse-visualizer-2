@@ -83,6 +83,7 @@ export const FIAT: Asset[] = [
 export const ALL_ASSETS: Asset[] = [...CRYPTO, ...FIAT];
 
 export const fmt = (n: number, max = 6): string => {
+  if (n == null || isNaN(n)) return '—';
   if (n === 0) return '0';
   const abs = Math.abs(n);
   if (abs >= 1000) return n.toLocaleString('en-US', { maximumFractionDigits: 2 });
